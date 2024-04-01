@@ -1,0 +1,46 @@
+/* * {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+} */
+
+.boardWrite {
+    display: flex;
+}
+
+.writing {
+    width: 60vw;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    /* border-left: 1px solid #dcdcdc; */
+}
+
+.writingT {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.writingX {
+    width: 60vw;
+    height: 2vw;
+    border-radius: 7px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.writingY {
+    width: 60vw;
+    height: 20vw;
+    border-radius: 7px;
+}
+
+.writingBtn {
+    width: 10%;
+    float: right;
+    font-size: 17px;
+    margin-top: 2vw;
+    border-radius: 7px;
+}

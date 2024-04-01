@@ -1,0 +1,75 @@
+.background {
+    display: flex;
+}
+
+.Nav {
+    padding: 10px 0;
+    display: block;
+    font-weight: bold;
+}
+
+.board {
+    width: 70vw;
+    /* height: 15vw; */
+    margin: 0 auto;
+    padding: 2vw 0;
+}
+
+.boardList {
+    /* margin-top: 2vw; */
+    /* border: 2px solid #B4B4FF; */
+    border-radius: 7px;
+}
+
+/* .boardTitle {
+    display: flex;
+    text-align: center;
+    padding: 1vw 0;
+} */
+
+.boardContent {
+    display: flex;
+    text-align: center;
+    border: 1px solid #B4B4FF;
+    padding: 2vw 0;
+}
+
+.boardBtn {
+    width: 150px;
+    margin: 2vw;
+    border: 1px solid #AD9AEE;
+    border-radius: 7px;
+    text-align: center;
+    position: fixed;
+    left: 85%;
+}
+
+.writeBtn {
+    width: 7vw;
+    padding: 10px 0;
+    margin: 2vw 0;
+    background-color: #AD9AEE;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#heart {
+    color: red;
+    font-size: 25px;
+}
+
+.test {
+    display: flex;
+    text-align: center;
+    margin-bottom: 2vw;
+    padding-top: 2vw;
+}
+
+.testn {
+    font-size: 25px;
+}
+
+#totalBoard {
+    margin-bottom: 2vw;
+}

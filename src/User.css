@@ -1,0 +1,44 @@
+* {
+    width: 100%;
+}
+
+.userPage {
+    height: 500px;
+}
+.userRank {
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    display: flex;
+}
+.userIcon {
+    width: 150px;
+    padding-top: 4%;
+}
+
+.userLevel {
+    display: block;
+    padding-top: 8%;
+    font-size: 20px;
+}
+
+.userCallIcon {
+    width: 70px;
+    padding-top: 4%;
+}
+
+.userInfo {
+    width: 75%;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 30px;
+    line-height: 40px;
+    font-size: 130%;
+    border: 1px solid #8F7CEE;
+    background-color: #8F7CEE;
+}
+
+.userData {
+    background-color: #8F7CEE;
+    color: white;
+}

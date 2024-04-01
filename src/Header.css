@@ -1,0 +1,67 @@
+* {
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-decoration: none;
+  }
+
+.header {
+  display: flex;
+  width: 80%;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.title {
+  width: 20%;
+}
+
+.title_name {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  margin-top: 8%;
+}
+  
+.title_nav {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+ .title_login {
+  font-size: 50px;
+  width: 10%;
+}
+
+#loginBtn {
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+}
+
+.logo {
+  width: 25%;
+  padding: 5%;
+}
+
+.logo_text {
+  width: 70%;
+  padding-left: 5%;
+  color: #AD9AEE;
+}
+
+.nav {
+  padding: 0 40px 0 0;
+}
+
+.nav:focus {
+  color: #AD9AEE;
+  text-decoration: underline;
+}
+
+hr {
+  border: 1px solid #C8C8FF;
+}

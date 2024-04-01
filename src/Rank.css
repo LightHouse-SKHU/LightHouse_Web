@@ -1,0 +1,31 @@
+/* * {
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-decoration: none;
+} */
+
+.rank {
+    display: flex;
+    width: 90%;
+    margin: 0 auto
+}
+
+.rankList {
+    margin-top: 3%;
+    border: 1px solid #B4B4FF;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.rankTitle {
+    display: flex;
+    padding: 2% 0;
+}
+
+.rankContent {
+    display: flex;
+    padding: 1% 0;
+}

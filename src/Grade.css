@@ -1,0 +1,56 @@
+/* * {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+} */
+
+.Grade {
+    display: flex;
+    height: 500px;
+}
+
+.Level {
+    border-left: 1px solid #dcdcdc;
+    display: flex; 
+    text-align: center;
+}
+
+.A {
+    background-color: #A5D8FA;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.B {
+    background-color: #B4C3FF;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.C {
+    background-color: #B4B4FF;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.D {
+    background-color: #D5C2EE;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.E {
+    background-color: 	#FFC3FA;
+    width: 15%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#Q1 {
+    margin-top: 30px;
+}
