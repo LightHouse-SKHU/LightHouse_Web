@@ -69,7 +69,9 @@ const Grade = () => {
           {data.map((data: GradeInfo) => (
             <>
               <div>{data.title}</div>
+              <br />
               <div>{data.category}</div>
+              <br />
               <div>{data.grade}</div>
             </>
           ))}
