@@ -47,7 +47,7 @@
 }
 
 .middleList {
-  width: 70vw;
+  width: 60vw;
   height: 15vw;
   margin: 0 auto;
   display: flex;
@@ -79,8 +79,6 @@
 
 .homeGrade {
   width: 15vw;
-  padding: 0 2vw;
-  margin-left: 8vw;
 }
 
 .homeLink {
