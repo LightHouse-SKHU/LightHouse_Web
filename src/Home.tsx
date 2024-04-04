@@ -63,6 +63,8 @@ const Home: React.FC = () => {
     fetchData();
   }, [navigate]);
 
+  const want = () => axios.get("https://lighthouse1.site/subscribe/1");
+
   const handleLike = () => {
     setLiked(!liked); // 좋아요 상태를 반전
     setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
@@ -199,6 +201,7 @@ const Home: React.FC = () => {
                 3학년 문제
               </Link>
             </div>
+            <button onClick={want}>요청</button>
           </div>
         </div>
         {/* <div className="rightNav">

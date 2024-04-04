@@ -95,15 +95,6 @@ const BoardList: React.FC = () => {
           {/* <hr /> */}
           <div className="boardList">
             <table>
-              {/* <thead>
-                <tr className="boardTitle">
-                  <th>No.</th>
-                  <th>Title</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Like</th>
-                </tr>
-              </thead> */}
               <tbody>
                 {data.map((data: BoardInfo) => (
                   <>
