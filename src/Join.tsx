@@ -145,7 +145,7 @@ const Join: React.FC = () => {
             />
           </div>
         </form>
-        <button type="submit" className="LoginBtn">
+        <button type="submit" onSubmit={handleSubmit} className="LoginBtn">
           Sign Up
         </button>
       </div>
