@@ -6,7 +6,7 @@
 } */
 
 .home {
-    /* display: flex; */
+  /* display: flex; */
 }
 
 /* .leftNav {
@@ -30,96 +30,98 @@
 } */
 
 .bannerContainer {
-    width: 80vw;
-    height: 15vw;
-    margin: 0 auto;
-    padding: 2vw;
+  width: 70vw;
+  height: 15vw;
+  margin: 0 auto;
+  padding: 2vw;
 }
 
-.bannerImg{
-    width: 40vw;
-    float: left;
+.bannerImg {
+  width: 35vw;
+  float: left;
 }
 
 .bannerImg img {
-    width: 100%;
-    border-radius: 7px;
+  width: 100%;
+  border-radius: 7px;
 }
 
 .middleList {
-    width: 80vw;
-    height: 15vw;
-    margin: 0 auto;
+  width: 70vw;
+  height: 15vw;
+  margin: 0 auto;
+  display: flex;
+}
+
+.homeBoard {
+  width: 50vw;
 }
 
 .homeList {
-    margin-top: 2vw;
-    border: 2px solid #B4B4FF;
-    border-radius: 7px;
+  margin-top: 2vw;
+  /* border: 2px solid #b4b4ff; */
+  border-radius: 7px;
 }
 .homeTitle {
-    display: flex;
-    text-align: center;
-    padding: 1vw 0;
+  display: flex;
+  text-align: center;
+  padding: 1vw 0;
 }
 .homeContent {
-    display: flex;
-    text-align: center;
-    border: 1px solid #B4B4FF;
-    padding: 2vw 0;
+  display: flex;
+  text-align: center;
+  border: 1px solid #b4b4ff;
+  border-radius: 7px;
+  /* width: 96%; */
+  margin: 1% 0;
+  padding: 1vw 0;
 }
 
-/* .rightNav {
-    width: 20%;
-    padding: 20px;
-    border-left: 1px solid #dcdcdc;
-}
-.question {
-    display: block;
-    margin: 30px 0;
-}
-#grade {
-    font-weight: bold;
-    font-size: 25px;
+.homeGrade {
+  width: 15vw;
+  padding: 0 2vw;
+  text-align: center;
 }
 
-.level {
-    display: flex; 
-    text-align: center;
-    padding-top: 15px;
+.homeLink {
+  display: flex;
+  margin-top: 2vw;
+  font-weight: bold;
+}
+.slideshow-container {
+  position: relative;
+  width: 70vw;
+  margin: auto;
 }
 
-.a {
-    background-color: #A5D8FA;
-    width: 15%;
-    margin: 0 auto;
-    padding-top: 20px;
+.mySlides {
+  display: none;
 }
 
-.b {
-    background-color: #B4C3FF;
-    width: 15%;
-    margin: 0 auto;
-    padding-top: 20px;
+.mySlides.active {
+  display: block;
 }
 
-.c {
-    background-color: #B4B4FF;
-    width: 15%;
-    margin: 0 auto;
-    padding-top: 20px;
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 4vw;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+  background-color: #b4b4ff;
 }
 
-.d {
-    background-color: #D5C2EE;
-    width: 15%;
-    margin: 0 auto;
-    padding-top: 20px;
+.prev {
+  left: 0;
 }
 
-.e {
-    background-color: 	#FFC3FA;
-    width: 15%;
-    margin: 0 auto;
-    padding-top: 20px;
-} */
+.next {
+  right: 0;
+}

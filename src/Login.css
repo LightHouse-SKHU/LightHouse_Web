@@ -1,55 +1,26 @@
-/* .LoginForm {
-    width: 80%;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.WritingL {
-    font-size: 25px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-}
-
-.LoginLeft {
-    width: 15%;
-    margin-top: 1.5%;
-}
-
-.LoginName {
-    display: flex;
-}
-
-.LoginRight {
-    width: 60%;
-} */
-
 .loginF {
-    width: 40vw;
-    margin: 0 auto;
-    padding: 10vw 0 0 0;
+  width: 40vw;
+  margin: 0 auto;
+  padding: 10vw 0 0 0;
 }
 
 .LoginI {
-    height: 2vw;
-    display: flex;
-    margin: 3% 0;
-    font-size: 15px;
-    border-radius: 7px;
+  height: 2vw;
+  display: flex;
+  margin: 3% 0;
+  font-size: 15px;
+  border-radius: 7px;
 }
 
 .LoginBtn {
-    width: 10%;
-    border-radius: 7px;
-    margin-top: 15px;
-    font-size: 17px;
-    float: right;
+  width: 10%;
+  border-radius: 7px;
+  margin-top: 15px;
+  font-size: 17px;
+  float: right;
 }
 
 .loginT {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }

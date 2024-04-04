@@ -1,40 +1,5 @@
-.JoinForm {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 15px;
-}
-
-.WritingJ {
-    font-size: 25px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-}
-
-.JoinLeft {
-    width: 15%;
-    margin-top: 1.5%;
-}
-
-.JoinName {
-    display: flex;
-}
-
-.JoinRight {
-    width: 60%;
-}
-
-.JoinInput {
-    height: 40px;
-    display: flex;
-    margin: 3% 0;
-    font-size: 17px;
-}
-
-.JoinBtn {
-    width: 10%;
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    font-size: 17px;
+.joinF {
+  width: 40vw;
+  margin: 0 auto;
+  padding: 2vw 0;
 }

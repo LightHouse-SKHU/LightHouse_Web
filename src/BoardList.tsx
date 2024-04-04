@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import './BoardList.css';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useEffect, useState } from "react";
+import "./BoardList.css";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 interface BoardInfo {
   id: string;
@@ -21,32 +21,29 @@ const BoardList: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
   const [isLiked, setIsLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
   const navigate = useNavigate();
-  // const [currentUser, setCurrentUser] = useState<UserInfo | null>(null); // 현재 사용자의 userName을 저장할 state 추가
-  // const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // localstorage에 저장했던 토큰 가져오기
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem("token");
 
         // 헤더에 토큰 추가
         const config = {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         };
 
         // 서버에 사용자 정보 달라고 get 요청 보내기
-        const response = await axios.get('https://lighthouse1.site/posts/find/list/all', config);
-        setData(response.data);  // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
-
-        // 현재 사용자 정보 가져오기
-        // const userResponse = await axios.get('https://lighthouse1.site/users/my/info', config);
-        // setCurrentUser(userResponse.data);
-
-      } catch (error) { // get 실패시 console 메시지 출력
-        console.error('Error fetching data:', error);
+        const response = await axios.get(
+          "https://lighthouse1.site/posts/find/list/all",
+          config
+        );
+        setData(response.data); // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+      } catch (error) {
+        // get 실패시 console 메시지 출력
+        console.error("Error fetching data:", error);
         // navigate('/Login')
       }
     };
@@ -55,8 +52,8 @@ const BoardList: React.FC = () => {
   }, [navigate]);
 
   const BoardWrite = () => {
-    navigate('/BoardWrite')
-  }
+    navigate("/BoardWrite");
+  };
 
   // const deletePost = async () => {
   //   try {
@@ -83,7 +80,7 @@ const BoardList: React.FC = () => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
-    return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+    return `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`;
   };
 
   if (!data) {
@@ -94,8 +91,8 @@ const BoardList: React.FC = () => {
     <>
       <div className="background">
         <div className="board">
-          <h1 id='totalBoard'>전체 게시판</h1>
-          <hr />
+          <h1 id="totalBoard">전체 게시판</h1>
+          {/* <hr /> */}
           <div className="boardList">
             <table>
               {/* <thead>
@@ -110,14 +107,23 @@ const BoardList: React.FC = () => {
               <tbody>
                 {data.map((data: BoardInfo) => (
                   <>
-                    <Link to={`/posts/find/${data.id}`} className='boardContent'>
+                    <Link
+                      to={`/posts/find/${data.id}`}
+                      className="boardContent"
+                    >
                       <td>{data.id}</td>
                       <td>{data.title}</td>
-                      <td>Lv.{data.userLevel}&nbsp;{data.userName}</td>
+                      <td>
+                        Lv.{data.userLevel}&nbsp;{data.userName}
+                      </td>
                       <td>{formatDate(data.creatAt)}</td>
                       <td>
                         <div onClick={toggleLike}>
-                          {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
+                          {isLiked ? (
+                            <AiFillHeart color="red" />
+                          ) : (
+                            <AiOutlineHeart />
+                          )}
                         </div>
                       </td>
                     </Link>
@@ -159,86 +165,123 @@ const BoardList: React.FC = () => {
               </tbody>
             </table>
 
-            <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
-              <div className='test'>
-              <div className='testn'>No. Title</div>
-              <div className='testu'>User<br />Date</div>
-              <div onClick={toggleLike} id='heart'>
+            {/* <hr /> */}
+            <div className="test">
+              <div className="testn">No. Title</div>
+              <div className="testu">
+                User
+                <br />
+                Date
+              </div>
+              <div onClick={toggleLike} id="heart">
                 {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
               </div>
             </div>
-              <hr />
+            {/* <hr /> */}
           </div>
-          
-
         </div>
-        <div className='boardBtn'>
-          <button onClick={BoardWrite} className='writeBtn'>글 작성</button>
-          <Link to='/Board' className="Nav">1학년 게시판</Link><br />
-          <Link to='/Board' className="Nav">2학년 게시판</Link><br />
-          <Link to='/Board' className="Nav">3학년 게시판</Link>
+        <div className="boardBtn">
+          <button onClick={BoardWrite} className="writeBtn">
+            글 작성
+          </button>
+          <Link to="/Board" className="Nav">
+            1학년 게시판
+          </Link>
+          <br />
+          <Link to="/Board" className="Nav">
+            2학년 게시판
+          </Link>
+          <br />
+          <Link to="/Board" className="Nav">
+            3학년 게시판
+          </Link>
         </div>
       </div>
-
-
     </>
   );
-}
-
+};
 
 export default BoardList;
