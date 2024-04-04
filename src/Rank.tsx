@@ -52,7 +52,6 @@ const Rank = () => {
         <table className="rankList">
           <thead>
             <tr className="rankTitle">
-              <th>ID</th>
               <th>Name</th>
               <th>Email</th>
               <th>Total Score</th>
@@ -61,8 +60,7 @@ const Rank = () => {
           </thead>
           <tbody>
             {data.map((data: RankInfo) => (
-              <tr className="rankContent">
-                <td>{data.id}</td>
+              <tr className="homeContent">
                 <td>{data.name}</td>
                 <td>{data.email}</td>
                 <td>{data.totalScore}</td>
