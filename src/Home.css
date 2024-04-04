@@ -80,18 +80,20 @@
 .homeGrade {
   width: 15vw;
   padding: 0 2vw;
-  text-align: center;
+  margin-left: 8vw;
 }
 
 .homeLink {
   display: flex;
   margin-top: 2vw;
   font-weight: bold;
+  justify-content: center;
 }
 .slideshow-container {
   position: relative;
-  width: 70vw;
+  width: 60vw;
   margin: auto;
+  padding: 1vw 0;
 }
 
 .mySlides {

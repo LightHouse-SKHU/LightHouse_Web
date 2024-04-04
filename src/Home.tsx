@@ -48,7 +48,7 @@ const Home: React.FC = () => {
 
         // 서버에 사용자 정보 달라고 get 요청 보내기
         const response = await axios.get(
-          "https://lighthouse1.site/posts/find/list/all",
+          "https://lighthouse1.site/posts/find/list/like",
           config
         );
 
@@ -62,8 +62,6 @@ const Home: React.FC = () => {
 
     fetchData();
   }, [navigate]);
-
-  const want = () => axios.get("https://lighthouse1.site/subscribe/1");
 
   const handleLike = () => {
     setLiked(!liked); // 좋아요 상태를 반전
@@ -94,7 +92,7 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="home">
-        <div className="bannerFlow">
+        <div>
           <div className="slideshow-container">
             {slides.map((slide, index) => (
               <div
@@ -116,24 +114,13 @@ const Home: React.FC = () => {
         </div>
         <div className="middleList">
           <div className="homeBoard">
-            <h1>전체 게시판</h1>
+            <h1>인기 게시판</h1>
             <table className="homeList">
-              {/* <thead>
-                <tr className="homeTitle">
-                  <th className="testn">No. Title</th>
-                  <th>
-                    User
-                    <br />
-                    Date
-                  </th>
-                  <th>Like</th>
-                </tr>
-              </thead> */}
               <tbody>
                 {data.map((data: BoardInfo) => (
                   <>
                     <Link to={`/posts/find/${data.id}`} className="homeContent">
-                      <td>
+                      <td className="testn">
                         {data.id}&nbsp;{data.title}
                       </td>
                       <td>
@@ -149,42 +136,6 @@ const Home: React.FC = () => {
                     </Link>
                   </>
                 ))}
-                <tr className="homeContent">
-                  <td className="testn">No. Title</td>
-                  <td>
-                    User
-                    <br />
-                    Date
-                  </td>
-                  <td>Like</td>
-                </tr>
-                <tr className="homeContent">
-                  <td className="testn">No. Title</td>
-                  <td>
-                    User
-                    <br />
-                    Date
-                  </td>
-                  <td>Like</td>
-                </tr>
-                <tr className="homeContent">
-                  <td className="testn">No. Title</td>
-                  <td>
-                    User
-                    <br />
-                    Date
-                  </td>
-                  <td>Like</td>
-                </tr>
-                <tr className="homeContent">
-                  <td className="testn">No. Title</td>
-                  <td>
-                    User
-                    <br />
-                    Date
-                  </td>
-                  <td>Like</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -201,7 +152,6 @@ const Home: React.FC = () => {
                 3학년 문제
               </Link>
             </div>
-            <button onClick={want}>요청</button>
           </div>
         </div>
         {/* <div className="rightNav">
