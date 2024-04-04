@@ -36,25 +36,20 @@
 
 .boardBtn {
   width: 150px;
-  margin: 2vw;
-  border: 1px solid #ad9aee;
-  border-radius: 7px;
   text-align: center;
-  position: fixed;
-  left: 85%;
+  margin: 2vw 4vw;
 }
 
 .writeBtn {
   width: 7vw;
   padding: 10px 0;
-  margin: 2vw 0;
   background-color: #ad9aee;
   border: none;
   font-weight: bold;
   font-size: 15px;
 }
 
-#heart {
+.heart {
   color: red;
   font-size: 25px;
 }

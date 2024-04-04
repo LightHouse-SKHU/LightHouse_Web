@@ -92,24 +92,21 @@ const BoardList: React.FC = () => {
       <div className="background">
         <div className="board">
           <h1 id="totalBoard">전체 게시판</h1>
-          {/* <hr /> */}
           <div className="boardList">
             <table>
               <tbody>
                 {data.map((data: BoardInfo) => (
                   <>
-                    <Link
-                      to={`/posts/find/${data.id}`}
-                      className="boardContent"
-                    >
-                      <td>{data.id}</td>
-                      <td>{data.title}</td>
-                      <td>
-                        Lv.{data.userLevel}&nbsp;{data.userName}
+                    <Link to={`/posts/find/${data.id}`} className="test">
+                      <td className="testn">
+                        {data.id}. {data.title}
                       </td>
-                      <td>{formatDate(data.creatAt)}</td>
                       <td>
-                        <div onClick={toggleLike}>
+                        Lv.{data.userLevel}&nbsp;{data.userName} <br />{" "}
+                        {formatDate(data.creatAt)}
+                      </td>
+                      <td>
+                        <div onClick={toggleLike} className="heart">
                           {isLiked ? (
                             <AiFillHeart color="red" />
                           ) : (
@@ -120,155 +117,14 @@ const BoardList: React.FC = () => {
                     </Link>
                   </>
                 ))}
-                {/* <tr className="boardContent">
-                  <th>No.</th>
-                  <th>Title</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>
-                    <div onClick={toggleLike} id='heart'>
-                      {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-                    </div>
-                  </th>
-                </tr>
-                <tr className="boardContent">
-                  <th>No.</th>
-                  <th>Title</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>
-                    <div onClick={toggleLike} id='heart'>
-                      {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-                    </div>
-                  </th>
-                </tr>
-                <tr className="boardContent">
-                  <th>No.</th>
-                  <th>Title</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>
-                    <div onClick={toggleLike} id='heart'>
-                      {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-                    </div>
-                  </th>
-                </tr> */}
               </tbody>
             </table>
-
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
-            <div className="test">
-              <div className="testn">No. Title</div>
-              <div className="testu">
-                User
-                <br />
-                Date
-              </div>
-              <div onClick={toggleLike} id="heart">
-                {isLiked ? <AiFillHeart color="red" /> : <AiOutlineHeart />}
-              </div>
-            </div>
-            {/* <hr /> */}
           </div>
         </div>
         <div className="boardBtn">
           <button onClick={BoardWrite} className="writeBtn">
             글 작성
           </button>
-          <Link to="/Board" className="Nav">
-            1학년 게시판
-          </Link>
-          <br />
-          <Link to="/Board" className="Nav">
-            2학년 게시판
-          </Link>
-          <br />
-          <Link to="/Board" className="Nav">
-            3학년 게시판
-          </Link>
         </div>
       </div>
     </>
