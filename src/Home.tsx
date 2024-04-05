@@ -121,7 +121,7 @@ const Home: React.FC = () => {
                   <>
                     <Link to={`/posts/find/${data.id}`} className="homeContent">
                       <td className="testn">
-                        {data.id}&nbsp;{data.title}
+                        {data.id}.&nbsp;{data.title}
                       </td>
                       <td>
                         Lv.{data.userLevel}&nbsp;{data.userName}
@@ -154,47 +154,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* <div className="rightNav">
-                    <div id="grade">문제 바로가기</div>
-                    <div>
-                        <div>
-                            <Link to='/grade1' className="question">
-                                1학년 문제 &nbsp; {'>'}
-                            </Link>
-                            <div className='level'>
-                                <Link to='/A1' className="a">수와 연산</Link>
-                                <Link to='/' className="b">문자와 식</Link>
-                                <Link to='/' className="c">함수</Link>
-                                <Link to='/' className="d">기하</Link>
-                                <Link to='/' className="e">확률과 통계</Link>
-                            </div>
-                        </div>
-                        <div>
-                            <Link to='/grade2' className="question">
-                                2학년 문제 &nbsp; {'>'}
-                            </Link>
-                            <div className='level'>
-                                <Link to='/A1' className="a">수와 연산</Link>
-                                <Link to='/' className="b">문자와 식</Link>
-                                <Link to='/' className="c">함수</Link>
-                                <Link to='/' className="d">기하</Link>
-                                <Link to='/' className="e">확률과 통계</Link>
-                            </div>
-                        </div>
-                        <div>
-                            <Link to='/grade3' className="question">
-                                3학년 문제 &nbsp; {'>'}
-                            </Link>
-                            <div className='level'>
-                                <Link to='/A1' className="a">수와 연산</Link>
-                                <Link to='/' className="b">문자와 식</Link>
-                                <Link to='/' className="c">함수</Link>
-                                <Link to='/' className="d">기하</Link>
-                                <Link to='/' className="e">확률과 통계</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
       </div>
     </>
   );

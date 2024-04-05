@@ -61,10 +61,20 @@ const Rank = () => {
           <tbody>
             {data.map((data: RankInfo) => (
               <tr className="homeContent">
-                <td>{data.name}</td>
-                <td>{data.email}</td>
-                <td>{data.totalScore}</td>
-                <td>{data.level}</td>
+                <ol type="1">
+                  <li>
+                    <td>{data.name}</td>
+                  </li>
+                  <li>
+                    <td>{data.email}</td>
+                  </li>
+                  <li>
+                    <td>{data.totalScore}</td>
+                  </li>
+                  <li>
+                    <td>{data.level}</td>
+                  </li>
+                </ol>
               </tr>
             ))}
           </tbody>
