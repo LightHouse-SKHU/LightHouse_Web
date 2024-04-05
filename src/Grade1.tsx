@@ -31,7 +31,7 @@ const Grade1: React.FC = () => {
           },
         };
         const response = await axios.get(
-          `https://lighthouse1.site/examples/find?grade=2`,
+          `https://lighthouse1.site/examples/find?grade=2&category=확률`,
           config
         );
         setQuest(response.data);
