@@ -65,16 +65,10 @@ const Rank = () => {
                   <li>
                     <td>{data.name}</td>
                   </li>
-                  <li>
-                    <td>{data.email}</td>
-                  </li>
-                  <li>
-                    <td>{data.totalScore}</td>
-                  </li>
-                  <li>
-                    <td>{data.level}</td>
-                  </li>
                 </ol>
+                <td>{data.email}</td>
+                <td>{data.totalScore}</td>
+                <td>{data.level}</td>
               </tr>
             ))}
           </tbody>
