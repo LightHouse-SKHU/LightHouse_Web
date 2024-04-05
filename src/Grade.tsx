@@ -49,11 +49,11 @@ const Grade = () => {
     <>
       <div className="Grade">
         <div className="boardBtn">
-          <Link to="/Question" className="Nav" id="Q1">
+          <Link to="/Grade" className="Nav" id="Q1">
             전체 문제
           </Link>
           <hr />
-          <Link to="/Grade1" className="Nav" id="Q2">
+          <Link to={`/examples/find/:grade`} className="Nav" id="Q2">
             1학년 문제
           </Link>
           <br />

@@ -30,7 +30,7 @@ function App() {
       <Route path="/BoardWrite" element={<BoardWrite />} />
       <Route path="/Grade" element={<Grade />} />
       <Route path="/examples/:id" element={<GradeDetail />} />
-      <Route path="/examples//find/:grade/:category" element={<Grade1 />} />
+      <Route path="/examples/find/:grade" element={<Grade1 />} />
       <Route path="/QuestionWrite" element={<QuestionWrite />} />
       <Route path="/Answer" element={<Answer />} />
     </Routes>
