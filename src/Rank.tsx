@@ -62,7 +62,7 @@ const Rank = () => {
             {data.map((data: RankInfo) => (
               <tr className="homeContent">
                 <td>
-                  <ol type="1">
+                  <ol>
                     <li>{data.name}</li>
                   </ol>
                 </td>
