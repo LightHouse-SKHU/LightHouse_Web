@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./BoardDetail.css";
 
@@ -18,7 +18,7 @@ interface QuestInfo {
 
 const Grade1: React.FC = () => {
   const [quest, setQuest] = useState<QuestInfo[]>([]);
-  const { grade } = useParams<{ grade: string }>();
+  //   const { grade } = useParams<{ grade: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Grade1: React.FC = () => {
           },
         };
         const response = await axios.get(
-          `https://lighthouse1.site/examples/find?grade=${grade}`,
+          `https://lighthouse1.site/examples/find?grade=2`,
           config
         );
         setQuest(response.data);
@@ -42,7 +42,7 @@ const Grade1: React.FC = () => {
     };
 
     fetchData();
-  }, [navigate, grade]);
+  }, [navigate]);
 
   if (!quest) {
     return <div>Loading...</div>;
