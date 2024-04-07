@@ -47,7 +47,7 @@ const GradeDetail: React.FC = () => {
     };
 
     fetchQuestData();
-  }, [navigate]); // id 추가
+  }, [id]); // id 추가
 
   if (!quest) {
     // quest가 null인 경우 로딩 표시
