@@ -66,11 +66,11 @@ const Login: React.FC = () => {
             />
           </div>
         </form>
-        <button type="submit" onClick={handleSubmit} className="LoginBtn">
-          Sign Up
-        </button>
         <button onClick={() => navigate("/Join")} className="LoginBtn">
           Join
+        </button>
+        <button type="submit" onClick={handleSubmit} className="LoginBtn">
+          Login
         </button>
       </div>
     </>
