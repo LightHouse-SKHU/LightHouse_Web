@@ -65,7 +65,7 @@ const BoardList: React.FC = () => {
     <>
       <div className="background">
         <div className="board">
-          <h1 id="totalBoard">전체 게시판</h1>
+          <h1 className="totalBoard">전체 게시판</h1>
           <div className="boardList">
             <table>
               <tbody>

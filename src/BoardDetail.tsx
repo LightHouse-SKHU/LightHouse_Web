@@ -94,7 +94,7 @@ const BoardDetail: React.FC = () => {
   return (
     <>
       <div className="boardDetail">
-        <h1>
+        <h1 className="totalBoard">
           {data.id}.&nbsp;
           {data.title}
         </h1>
