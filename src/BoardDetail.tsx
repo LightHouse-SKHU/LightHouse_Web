@@ -116,13 +116,14 @@ const BoardDetail: React.FC = () => {
         </tbody>
       </table>
 
-      <div>
+      <div className="test">
         <h3>
-          {data.id}
+          {data.id}.&nbsp;
           {data.title}
         </h3>
         <div>
-          {data.userLevel} {data.userName}
+          {data.userLevel}&nbsp;
+          {data.userName}
         </div>
         <div>{data.createAt.substring(0, 10)}</div>
         <div>
@@ -133,6 +134,45 @@ const BoardDetail: React.FC = () => {
       <button onClick={deletePost} className="LoginBtn">
         Delete
       </button>
+
+      <div className="background">
+        <div className="board">
+          <h1 id="totalBoard">전체 게시판</h1>
+          <div className="boardList">
+            <table>
+              <tbody>
+                {data.map((data: BoardInfo) => (
+                  <>
+                    <Link to={`/posts/find/${data.id}`} className="test">
+                      <td className="testn">
+                        {data.id}. {data.title}
+                      </td>
+                      <td>
+                        Lv.{data.userLevel}&nbsp;{data.userName} <br />{" "}
+                        {data.createAt.substring(0, 10)}
+                      </td>
+                      <td>
+                        <div onClick={toggleLike} className="heart">
+                          {isLiked ? (
+                            <AiFillHeart color="red" />
+                          ) : (
+                            <AiOutlineHeart />
+                          )}
+                        </div>
+                      </td>
+                    </Link>
+                  </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="boardBtn">
+          <button onClick={deletePost} className="LoginBtn">
+            Delete
+          </button>
+        </div>
+      </div>
     </>
   );
 };
