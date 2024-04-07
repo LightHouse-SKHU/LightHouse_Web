@@ -91,7 +91,6 @@ const BoardDetail: React.FC = () => {
         config
       );
       console.log(response);
-      navigate("/BoardList");
     } catch (error) {
       console.error("Error posting comment:", error);
     }
