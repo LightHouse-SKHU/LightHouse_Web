@@ -10,7 +10,7 @@
   display: flex;
 }
 .userIcon {
-  width: 20vw;
+  width: 150px;
   padding-top: 4vw;
 }
 
@@ -36,7 +36,6 @@
 
 .bar {
   display: flex;
-  width: 40vw;
   padding-top: 4vw;
 }
 
