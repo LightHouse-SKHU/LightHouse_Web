@@ -99,6 +99,7 @@ const BoardDetail: React.FC = () => {
           {data.title}
         </h1>
         <div className="test">
+          <p>{data.content}</p>
           <p>{data.userLevel}&nbsp;</p>
           <p>{data.userName}</p>
           <p>{data.createAt.substring(0, 10)}</p>
