@@ -4,7 +4,7 @@
 }
 
 .boardInfo {
-  float: right;
+  text-align: right;
   padding-left: 10vw;
 }
 
