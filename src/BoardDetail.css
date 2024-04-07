@@ -5,10 +5,10 @@
 
 .boardInfo {
   float: right;
-  padding-left: 4vw;
+  padding-left: 10vw;
 }
 
 .boardHead {
   display: flex;
-  margin: 2vw;
+  margin: 2vw 0;
 }
