@@ -116,7 +116,7 @@ const BoardDetail: React.FC = () => {
     }
   };
 
-  const deleteComment = async () => {
+  const deleteComment = async (commentId: string) => {
     try {
       const token = localStorage.getItem("token");
       const config = {
@@ -129,7 +129,9 @@ const BoardDetail: React.FC = () => {
         config
       );
       console.log(response);
-      navigate("/BoardList");
+      const updatedComments =
+        comment?.filter((comment) => comment.id !== commentId) || [];
+      setComment(updatedComments);
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
@@ -214,7 +216,9 @@ const BoardDetail: React.FC = () => {
                   <>
                     <div key={comment.id}>
                       <span>{comment.content}</span>
-                      <button onClick={deleteComment}>Delete</button>
+                      <button onClick={() => deleteComment(comment.id)}>
+                        Delete
+                      </button>
                     </div>
                   </>
                 ))}
