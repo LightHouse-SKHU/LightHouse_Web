@@ -38,6 +38,10 @@
   display: flex;
 }
 
+.barLevel {
+  width: 4vw;
+}
+
 .StyledBase {
   height: 26px;
   border: 2px solid;

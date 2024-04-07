@@ -67,7 +67,7 @@ const User = () => {
             <img src={userIcon} alt="유저 아이콘" className="userIcon" />
           </div>
           <div className="bar">
-            <div>Lv. {data.level}</div>
+            <div className="barLevel">Lv. {data.level}</div>
             <div className="StyledBase">
               <div className="StyledRange" style={{ width: `${ratio}%` }} />
             </div>
