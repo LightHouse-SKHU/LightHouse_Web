@@ -63,10 +63,19 @@ const BoardDetail: React.FC = () => {
     }
   };
 
-  // const handleLike = () => {
-  //   setLiked(!liked); // 좋아요 상태를 반전
-  //   setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
-  // };
+  const handleLike = () => {
+    setActive(!active);
+    if (!active) {
+      axios
+        .post(`https://lighthouse1.site/likes`, { id })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error("Error posting data: ", error);
+        });
+    }
+  };
 
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
@@ -108,12 +117,7 @@ const BoardDetail: React.FC = () => {
       <button onClick={deletePost} className="detailBtn">
         Delete
       </button>
-      <Heart
-        width={24}
-        height={24}
-        active={active}
-        onClick={() => setActive(!active)}
-      />
+      <Heart width={24} height={24} active={active} onClick={handleLike} />
     </>
   );
 };
