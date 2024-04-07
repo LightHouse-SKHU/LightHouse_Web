@@ -165,7 +165,7 @@ const BoardDetail: React.FC = () => {
                 height={24}
                 active={active}
                 onClick={handleLike}
-                style={{ display: "block" }}
+                style={{ float: "right" }}
               />
             </p>
           </div>
