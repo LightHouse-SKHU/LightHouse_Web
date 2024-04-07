@@ -15,6 +15,7 @@ interface BoardInfo {
 
 const BoardDetail: React.FC = () => {
   const [data, setData] = useState<BoardInfo | null>(null);
+  const [comment, setComment] = useState();
   const [likes, setLikes] = useState(0);
   const [active, setActive] = useState(false);
   const { id } = useParams<{ id: string }>();
@@ -43,6 +44,29 @@ const BoardDetail: React.FC = () => {
     fetchData();
   }, [navigate, id]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await axios.get(
+          `https://lighthouse1.site/comments/find/${id}`,
+          config
+        );
+        setComment(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        navigate("/Login");
+      }
+    };
+
+    fetchData();
+  }, [navigate, id]);
+
   const deletePost = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -59,6 +83,44 @@ const BoardDetail: React.FC = () => {
       navigate("/BoardList");
     } catch (error) {
       console.error("Error deleting post:", error);
+    }
+  };
+
+  const postComment = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post(
+        `https://lighthouse1.site/comments/save/${id}`,
+        config
+      );
+      console.log(response);
+      navigate("/BoardList");
+    } catch (error) {
+      console.error("Error posting comment:", error);
+    }
+  };
+
+  const deleteComment = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.delete(
+        `https://lighthouse1.site/comments/delete/${id}`,
+        config
+      );
+      console.log(response);
+      navigate("/BoardList");
+    } catch (error) {
+      console.error("Error deleting comment:", error);
     }
   };
 
@@ -117,6 +179,18 @@ const BoardDetail: React.FC = () => {
         <button onClick={deletePost} className="LoginBtn">
           Delete
         </button>
+        <div className="comment">
+          <div>
+            <input type="text" className="writingX" />
+            <div>{comment}</div>
+            <button type="submit" onClick={postComment}>
+              댓글 작성
+            </button>
+            <button onClick={deleteComment} className="LoginBtn">
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
