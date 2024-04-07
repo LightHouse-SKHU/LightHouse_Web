@@ -158,16 +158,22 @@ const BoardDetail: React.FC = () => {
               Lv.{data.userLevel}&nbsp;{data.userName}
             </p>
             <p>{data.createAt.substring(0, 10)}</p>
+            <div className="heart">
+              <Heart
+                width={24}
+                height={24}
+                active={active}
+                onClick={handleLike}
+              />
+              &nbsp;
+              {likes}
+            </div>
           </div>
         </div>
         <div className="test">
           <p>{data.content}</p>
         </div>
-        <div className="heart">
-          <Heart width={24} height={24} active={active} onClick={handleLike} />
-          &nbsp;
-          {likes}
-        </div>
+
         <button onClick={deletePost} className="commentBtn">
           삭제
         </button>
