@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./Grade.css";
 import axios from "axios";
 import { useState } from "react";
@@ -48,24 +47,12 @@ const Grade = () => {
   return (
     <>
       <div className="Grade">
-        <div className="boardBtn">
-          <Link to="/Grade" className="Nav" id="Q1">
-            전체 문제
-          </Link>
-          <hr />
-          <Link to={`/examples/find/:grade`} className="Nav" id="Q2">
-            1학년 문제
-          </Link>
-          <br />
-          <Link to="/Grade2" className="Nav">
-            2학년 문제
-          </Link>
-          <br />
-          <Link to="/Grade3" className="Nav">
-            3학년 문제
-          </Link>
-        </div>
         <div className="Level">
+          <div className="levelT">
+            <div>제목</div>
+            <div>카테고리</div>
+            <div>학년</div>
+          </div>
           {data.map((data: GradeInfo) => (
             <>
               <div>{data.title}</div>

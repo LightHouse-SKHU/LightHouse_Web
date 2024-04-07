@@ -1,56 +1,20 @@
-/* * {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-} */
-
 .Grade {
   display: flex;
   height: 500px;
+  margin-top: 2vw;
 }
 
 .Level {
-  border-left: 1px solid #dcdcdc;
-  /* display: flex;  */
+  border: 1px solid #b4b4ff;
+  border-radius: 7px;
   text-align: center;
-}
+  width: 50vw;
 
-.A {
-  background-color: #a5d8fa;
-  width: 15%;
   margin: 0 auto;
-  padding-top: 20px;
 }
 
-.B {
-  background-color: #b4c3ff;
-  width: 15%;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.C {
-  background-color: #b4b4ff;
-  width: 15%;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.D {
-  background-color: #d5c2ee;
-  width: 15%;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-.E {
-  background-color: #ffc3fa;
-  width: 15%;
-  margin: 0 auto;
-  padding-top: 20px;
-}
-
-#Q1 {
-  margin-top: 30px;
+.levelT {
+  display: flex;
+  font-weight: bold;
+  font-size: 25px;
 }
