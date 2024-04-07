@@ -9,12 +9,12 @@
   display: flex;
 }
 .userIcon {
-  /* width: 150px; */
+  width: 150px;
   padding-top: 4%;
 }
 
 .userLevel {
-  display: block;
+  /* display: block; */
   padding-top: 8%;
   font-size: 20px;
 }
