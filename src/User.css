@@ -37,3 +37,20 @@
   background-color: #8f7cee;
   color: white;
 }
+
+/* Gauge.css */
+
+/* StyledBase 스타일 */
+.StyledBase {
+  height: 26px;
+  border: 3px solid;
+  margin-right: 15%;
+  margin-left: 15%;
+  justify-content: center;
+}
+
+/* StyledRange 스타일 */
+.StyledRange {
+  height: 20px;
+  background: linear-gradient(to right, #ffacfc, #b76cfd);
+}

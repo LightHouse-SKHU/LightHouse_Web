@@ -18,6 +18,8 @@ interface UserInfo {
 
 const User = () => {
   const [data, setData] = useState<UserInfo | null>(null);
+  const exp = 246;
+  const ratio = parseInt((exp % 100).toString());
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,6 +65,10 @@ const User = () => {
           </div>
           <div>
             <div className="userLevel">Lv. {data.level}</div>
+            <div className="StyledBase">
+              {/* Base 안에 Range를 넣어 준다. */}
+              <div className="StyledRange" style={{ width: `${ratio}%` }} />
+            </div>
           </div>
         </div>
         <div className="userInfo">
