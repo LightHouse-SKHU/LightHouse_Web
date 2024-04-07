@@ -18,8 +18,8 @@ interface UserInfo {
 
 const User = () => {
   const [data, setData] = useState<UserInfo | null>(null);
-  const exp = 246;
-  const ratio = parseInt((exp % 100).toString());
+  const [userLevel, setUserLevel] = useState<number>(0);
+  const ratio = Math.min(Math.floor((userLevel / 100) * 100), 100);
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,8 +40,11 @@ const User = () => {
           "https://lighthouse1.site/users/my/info",
           config
         );
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const data: any = await response.data;
 
-        setData(response.data); // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+        setData(response.data);
+        setUserLevel(data.level); // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
       } catch (error) {
         // get 실패시 console 메시지 출력
         console.error("Error fetching data:", error);
