@@ -16,7 +16,7 @@ interface QuestInfo {
 }
 
 const GradeDetail: React.FC = () => {
-  const [quest, setQuest] = useState<QuestInfo | null>(null);
+  const [quest, setQuest] = useState<QuestInfo>();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
