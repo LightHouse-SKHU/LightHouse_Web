@@ -104,11 +104,13 @@ const BoardList: React.FC = () => {
                       </td>
                       <td>
                         <div className="heart">
+                          {likes}&nbsp;
                           <Heart
                             width={24}
                             height={24}
                             active={active}
                             onClick={handleLike}
+                            style={{ float: "right" }}
                           />
                         </div>
                       </td>

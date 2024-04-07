@@ -160,6 +160,7 @@ const BoardDetail: React.FC = () => {
             </p>
             <p>{data.createAt.substring(0, 10)}</p>
             <p>
+              {likes}&nbsp;
               <Heart
                 width={24}
                 height={24}
@@ -167,7 +168,6 @@ const BoardDetail: React.FC = () => {
                 onClick={handleLike}
                 style={{ float: "right" }}
               />
-              {likes}
             </p>
           </div>
         </div>
