@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./BoardDetail.css";
+import Heart from "@react-sandbox/heart";
 
 interface BoardInfo {
   id: string;
@@ -14,8 +15,9 @@ interface BoardInfo {
 
 const BoardDetail: React.FC = () => {
   const [data, setData] = useState<BoardInfo | null>(null);
-  const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
-  const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
+  // const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
+  // const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
+  const [active, setActive] = useState(false);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -61,10 +63,10 @@ const BoardDetail: React.FC = () => {
     }
   };
 
-  const handleLike = () => {
-    setLiked(!liked); // 좋아요 상태를 반전
-    setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
-  };
+  // const handleLike = () => {
+  //   setLiked(!liked); // 좋아요 상태를 반전
+  //   setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+  // };
 
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
@@ -106,9 +108,12 @@ const BoardDetail: React.FC = () => {
       <button onClick={deletePost} className="detailBtn">
         Delete
       </button>
-      <button onClick={handleLike} className="detailBtn">
-        👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
-      </button>
+      <Heart
+        width={24}
+        height={24}
+        active={active}
+        onClick={() => setActive(!active)}
+      />
     </>
   );
 };

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-sandbox/heart": "^1.1.0",
     "@types/node": "^20.12.2",
     "axios": "^1.6.8",
     "react": "^18.2.0",

@@ -8,12 +8,6 @@
   padding: 2vw 0 2vw 10vw;
 }
 
-.boardList {
-  /* margin-top: 2vw; */
-  /* border: 2px solid #B4B4FF; */
-  border-radius: 7px;
-}
-
 .boardContent {
   display: flex;
   text-align: center;
