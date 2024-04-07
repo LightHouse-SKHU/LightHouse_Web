@@ -1,18 +1,15 @@
-* {
-  width: 100%;
-}
-
 .userPage {
+  width: 60vw;
   height: 500px;
 }
 .userRank {
-  width: 80%;
-  height: 50%;
+  /* width: 80%;
+  height: 50%; */
   margin: 0 auto;
   display: flex;
 }
 .userIcon {
-  width: 150px;
+  /* width: 150px; */
   padding-top: 4%;
 }
 
@@ -22,7 +19,7 @@
   font-size: 20px;
 }
 .userInfo {
-  width: 75%;
+  /* width: 75%; */
   display: block;
   margin: 0 auto;
   padding: 20px 30px;
@@ -38,9 +35,6 @@
   color: white;
 }
 
-/* Gauge.css */
-
-/* StyledBase 스타일 */
 .StyledBase {
   height: 26px;
   border: 3px solid;
@@ -49,7 +43,6 @@
   justify-content: center;
 }
 
-/* StyledRange 스타일 */
 .StyledRange {
   height: 20px;
   background: linear-gradient(to right, #b4b4ff, #8f7cee);
