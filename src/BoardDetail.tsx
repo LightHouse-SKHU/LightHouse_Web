@@ -67,7 +67,7 @@ const BoardDetail: React.FC = () => {
     setActive(!active);
     if (!active) {
       axios
-        .post(`https://lighthouse1.site/likes`, { id })
+        .post(`https://lighthouse1.site/likes/1`, { id })
         .then((response) => {
           console.log(response);
         })
