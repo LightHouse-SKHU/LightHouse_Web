@@ -98,21 +98,18 @@ const BoardDetail: React.FC = () => {
           {data.id}.&nbsp;
           {data.title}
         </h1>
-        <div className="test">
-          <p>{data.content}</p>
+        <div className="boardInfo">
           <p>{data.userLevel}&nbsp;</p>
           <p>{data.userName}</p>
           <p>{data.createAt.substring(0, 10)}</p>
-          <p>
-            <Heart
-              width={24}
-              height={24}
-              active={active}
-              onClick={handleLike}
-            />
-            &nbsp;
-            {likes}
-          </p>
+        </div>
+        <div className="test">
+          <p>{data.content}</p>
+        </div>
+        <div>
+          <Heart width={24} height={24} active={active} onClick={handleLike} />
+          &nbsp;
+          {likes}
         </div>
         <button onClick={deletePost} className="LoginBtn">
           Delete
