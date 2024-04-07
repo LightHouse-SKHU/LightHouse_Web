@@ -10,7 +10,7 @@
   display: flex;
 }
 .userIcon {
-  width: 150px;
+  width: 20vw;
   padding-top: 4vw;
 }
 
@@ -36,12 +36,13 @@
 
 .bar {
   display: flex;
+  width: 40vw;
   padding-top: 4vw;
 }
 
 .barLevel {
   width: 4vw;
-  font-size: 26px;
+  font-size: 22px;
 }
 
 .StyledBase {
