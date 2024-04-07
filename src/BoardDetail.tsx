@@ -94,14 +94,16 @@ const BoardDetail: React.FC = () => {
   return (
     <>
       <div className="boardDetail">
-        <h1 className="totalBoard">
-          {data.id}.&nbsp;
-          {data.title}
-        </h1>
-        <div className="boardInfo">
-          <p>{data.userLevel}&nbsp;</p>
-          <p>{data.userName}</p>
-          <p>{data.createAt.substring(0, 10)}</p>
+        <div className="boardHead">
+          <h1 className="totalBoard">
+            {data.id}.&nbsp;
+            {data.title}
+          </h1>
+          <div className="boardInfo">
+            <p>{data.userLevel}&nbsp;</p>
+            <p>{data.userName}</p>
+            <p>{data.createAt.substring(0, 10)}</p>
+          </div>
         </div>
         <div className="test">
           <p>{data.content}</p>
