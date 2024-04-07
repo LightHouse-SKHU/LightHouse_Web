@@ -93,43 +93,17 @@ const BoardDetail: React.FC = () => {
 
   return (
     <>
-      <table>
-        <thead>
-          <tr className="boardTitle">
-            <th>No.</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>User</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr key={data.id} className="boardContent">
-            <td>{data.id}</td>
-            <td>{data.title}</td>
-            <td>{data.content}</td>
-            <td>
-              Lv.{data.userLevel}&nbsp;{data.userName}
-            </td>
-            <td>{data.createAt.substring(0, 10)}</td>
-          </tr>
-        </tbody>
-      </table>
-
+      <h3>
+        {data.id}.&nbsp;
+        {data.title}
+      </h3>
       <div className="test">
-        <h3>
-          {data.id}.&nbsp;
-          {data.title}
-        </h3>
-        <div>
-          {data.userLevel}&nbsp;
-          {data.userName}
-        </div>
-        <div>{data.createAt.substring(0, 10)}</div>
-        <div>
-          <Heart width={24} height={24} active={active} onClick={handleLike} />
-          {likes}
-        </div>
+        {data.userLevel}&nbsp;
+        {data.userName}
+        {data.createAt.substring(0, 10)}
+        <Heart width={24} height={24} active={active} onClick={handleLike} />
+        &nbsp;
+        {likes}
       </div>
       <button onClick={deletePost} className="LoginBtn">
         Delete
