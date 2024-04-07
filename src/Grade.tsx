@@ -1,6 +1,7 @@
 import "./Grade.css";
 import axios from "axios";
 import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 interface GradeInfo {
   title: string;
@@ -15,6 +16,7 @@ interface GradeInfo {
 
 const Grade = () => {
   const [data, setData] = useState<GradeInfo[]>([]);
+  const { id } = useParams<{ id: string }>();
 
   const fetchData = async () => {
     try {
@@ -55,11 +57,13 @@ const Grade = () => {
           </div>
           {data.map((data: GradeInfo) => (
             <>
-              <div>{data.title}</div>
-              <br />
-              <div>{data.category}</div>
-              <br />
-              <div>{data.grade}</div>
+              <Link to={`/examples/${id}`}>
+                <div>{data.title}</div>
+                <br />
+                <div>{data.category}</div>
+                <br />
+                <div>{data.grade}</div>
+              </Link>
             </>
           ))}
         </div>
