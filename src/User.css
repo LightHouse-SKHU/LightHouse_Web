@@ -11,7 +11,7 @@
 }
 .userIcon {
   width: 150px;
-  padding-top: 4%;
+  padding-top: 4vw;
 }
 
 .userLevel {
@@ -44,7 +44,7 @@
   margin-right: 15%;
   margin-left: 15%;
   justify-content: center;
-  display: flex;
+  display: inline;
 }
 
 .StyledRange {
