@@ -16,7 +16,7 @@ interface QuestInfo {
 }
 
 const GradeDetail: React.FC = () => {
-  const [quest, setQuest] = useState<QuestInfo[]>([]);
+  const [quest, setQuest] = useState<QuestInfo | null>(null);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -72,18 +72,16 @@ const GradeDetail: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {quest.map((data: QuestInfo) => (
-                  <tr key={data.id}>
-                    <td>{data.id}</td>
-                    <td>{data.title}</td>
-                    <td>{data.content}</td>
-                    <td>{data.multipleChoice}</td>
-                    <td>
-                      <img src={data.imgPath} alt={data.imgPath} />
-                    </td>
-                    <td>{data.category}</td>
-                  </tr>
-                ))}
+                <tr key={quest.id}>
+                  <td>{quest.id}</td>
+                  <td>{quest.title}</td>
+                  <td>{quest.content}</td>
+                  <td>{quest.multipleChoice}</td>
+                  <td>
+                    <img src={quest.imgPath} alt={quest.imgPath} />
+                  </td>
+                  <td>{quest.category}</td>
+                </tr>
               </tbody>
             </table>
           </div>
