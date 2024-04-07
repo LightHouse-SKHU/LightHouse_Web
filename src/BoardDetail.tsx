@@ -14,6 +14,7 @@ interface BoardInfo {
 }
 
 interface CommentInfo {
+  id: string;
   content: string;
 }
 
@@ -190,12 +191,10 @@ const BoardDetail: React.FC = () => {
           Delete
         </button>
         <div className="comment">
-          <div className="comment">
-            {/* 댓글 작성 버튼 */}
-            <button onClick={toggleCommentForm}>
+          <div className="">
+            <button onClick={toggleCommentForm} className="LoginBtn">
               {showCommentForm ? "Close Comment Form" : "Write a Comment"}
             </button>
-            {/* 댓글 작성 창 */}
             {showCommentForm && (
               <div>
                 <input
@@ -204,19 +203,22 @@ const BoardDetail: React.FC = () => {
                   value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
                 />
-                <button onClick={postComment}>Post Comment</button>
+                <button onClick={postComment} className="LoginBtn">
+                  Post Comment
+                </button>
               </div>
             )}
-            {/* 작성된 댓글 표시 */}
-            <div>
+            <div className="test">
               {comment &&
-                comment.map((comment, index) => (
-                  <div key={index}>{comment.content}</div>
+                comment.map((comment) => (
+                  <>
+                    <div key={comment.id}>
+                      <span>{comment.content}</span>
+                      <button onClick={deleteComment}>Delete</button>
+                    </div>
+                  </>
                 ))}
             </div>
-            <button onClick={deleteComment} className="LoginBtn">
-              Delete
-            </button>
           </div>
         </div>
       </div>
