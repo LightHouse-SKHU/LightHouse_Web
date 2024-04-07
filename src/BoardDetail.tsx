@@ -13,9 +13,15 @@ interface BoardInfo {
   createAt: string;
 }
 
+interface CommentInfo {
+  content: string;
+}
+
 const BoardDetail: React.FC = () => {
   const [data, setData] = useState<BoardInfo | null>(null);
-  const [comment, setComment] = useState();
+  const [comment, setComment] = useState<CommentInfo[] | null>(null);
+  const [newComment, setNewComment] = useState("");
+  const [showCommentForm, setShowCommentForm] = useState(false);
   const [likes, setLikes] = useState(0);
   const [active, setActive] = useState(false);
   const { id } = useParams<{ id: string }>();
@@ -53,7 +59,7 @@ const BoardDetail: React.FC = () => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const response = await axios.get(
+        const response = await axios.get<CommentInfo[]>(
           `https://lighthouse1.site/comments/find/${id}`,
           config
         );
@@ -66,6 +72,30 @@ const BoardDetail: React.FC = () => {
 
     fetchData();
   }, [navigate, id]);
+
+  const toggleCommentForm = () => {
+    setShowCommentForm((prev) => !prev); // 댓글 작성 창을 열고 닫음
+  };
+
+  const postComment = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post(
+        `https://lighthouse1.site/comments/save/${id}`,
+        { content: newComment },
+        config
+      );
+      console.log(response);
+      navigate("/BoardList");
+    } catch (error) {
+      console.error("Error posting comment:", error);
+    }
+  };
 
   const deletePost = async () => {
     try {
@@ -83,25 +113,6 @@ const BoardDetail: React.FC = () => {
       navigate("/BoardList");
     } catch (error) {
       console.error("Error deleting post:", error);
-    }
-  };
-
-  const postComment = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.post(
-        `https://lighthouse1.site/comments/save/${id}`,
-        config
-      );
-      console.log(response);
-      navigate("/BoardList");
-    } catch (error) {
-      console.error("Error posting comment:", error);
     }
   };
 
@@ -180,12 +191,30 @@ const BoardDetail: React.FC = () => {
           Delete
         </button>
         <div className="comment">
-          <div>
-            <input type="text" className="writingX" />
-            <div>{comment}</div>
-            <button type="submit" onClick={postComment}>
-              댓글 작성
+          <div className="comment">
+            {/* 댓글 작성 버튼 */}
+            <button onClick={toggleCommentForm}>
+              {showCommentForm ? "Close Comment Form" : "Write a Comment"}
             </button>
+            {/* 댓글 작성 창 */}
+            {showCommentForm && (
+              <div>
+                <input
+                  type="text"
+                  className="writingX"
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                />
+                <button onClick={postComment}>Post Comment</button>
+              </div>
+            )}
+            {/* 작성된 댓글 표시 */}
+            <div>
+              {comment &&
+                comment.map((comment, index) => (
+                  <div key={index}>{comment.content}</div>
+                ))}
+            </div>
             <button onClick={deleteComment} className="LoginBtn">
               Delete
             </button>
