@@ -2,17 +2,10 @@
   display: flex;
 }
 
-.Nav {
-  padding: 10px 0;
-  display: block;
-  font-weight: bold;
-}
-
 .board {
   width: 60vw;
-  /* height: 15vw; */
   margin: 0 auto;
-  padding: 2vw 0;
+  padding: 2vw 0 2vw 10vw;
 }
 
 .boardList {
@@ -20,12 +13,6 @@
   /* border: 2px solid #B4B4FF; */
   border-radius: 7px;
 }
-
-/* .boardTitle {
-  display: flex;
-  text-align: center;
-  padding: 1vw 0;
-} */
 
 .boardContent {
   display: flex;
