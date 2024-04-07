@@ -167,6 +167,7 @@ const BoardDetail: React.FC = () => {
                 onClick={handleLike}
                 style={{ float: "right" }}
               />
+              {likes}
             </p>
           </div>
         </div>
