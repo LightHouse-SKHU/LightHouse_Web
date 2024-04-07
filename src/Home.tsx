@@ -149,7 +149,6 @@ const Home: React.FC = () => {
                             height={24}
                             active={active}
                             onClick={handleLike}
-                            style={{ float: "right" }}
                           />
                         </div>
                       </td>
