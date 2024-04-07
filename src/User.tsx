@@ -67,9 +67,8 @@ const User = () => {
             <img src={userIcon} alt="유저 아이콘" className="userIcon" />
           </div>
           <div>
-            <div className="userLevel">Lv. {data.level}</div>
             <div className="StyledBase">
-              {/* Base 안에 Range를 넣어 준다. */}
+              <div>Lv. {data.level}</div>
               <div className="StyledRange" style={{ width: `${ratio}%` }} />
             </div>
           </div>
