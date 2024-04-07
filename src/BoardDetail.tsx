@@ -10,7 +10,7 @@ interface BoardInfo {
   userLevel: string;
   title: string;
   content: string;
-  creatAt: string;
+  createAt: string;
 }
 
 const BoardDetail: React.FC = () => {
@@ -111,7 +111,7 @@ const BoardDetail: React.FC = () => {
             <td>
               Lv.{data.userLevel}&nbsp;{data.userName}
             </td>
-            <td>{data.creatAt}</td>
+            <td>{data.createAt}</td>
           </tr>
         </tbody>
       </table>
@@ -124,7 +124,7 @@ const BoardDetail: React.FC = () => {
         <div>
           {data.userLevel} {data.userName}
         </div>
-        <div>{data.creatAt}</div>
+        <div>{data.createAt}</div>
         <div>
           <Heart width={24} height={24} active={active} onClick={handleLike} />
           {likes}
