@@ -11,7 +11,7 @@ interface BoardInfo {
   userLevel: string;
   title: string;
   content: string;
-  creatAt: string;
+  createAt: string;
 }
 
 // 이미지 슬라이드 데이터 타입 정의
@@ -68,19 +68,10 @@ const Home: React.FC = () => {
     setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
   };
 
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`;
-  };
-
-  // 다음 슬라이드로 이동하는 함수
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
   };
-  // 이전 슬라이드로 이동하는 함수
+
   const prevSlide = () => {
     setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
   };
@@ -126,7 +117,7 @@ const Home: React.FC = () => {
                       <td>
                         Lv.{data.userLevel}&nbsp;{data.userName}
                         <br />
-                        {formatDate(data.creatAt)}
+                        {data.createAt.substring(0, 10)}
                       </td>
                       <td>
                         <button onClick={handleLike} id="likeBtn">

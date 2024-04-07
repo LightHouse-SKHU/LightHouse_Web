@@ -10,7 +10,7 @@ interface BoardInfo {
   userLevel: string;
   title: string;
   content: string;
-  creatAt: string;
+  createAt: string;
 }
 
 // interface UserInfo {
@@ -40,11 +40,9 @@ const BoardList: React.FC = () => {
           "https://lighthouse1.site/posts/find/list/all",
           config
         );
-        setData(response.data); // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+        setData(response.data);
       } catch (error) {
-        // get 실패시 console 메시지 출력
         console.error("Error fetching data:", error);
-        // navigate('/Login')
       }
     };
 
@@ -55,32 +53,8 @@ const BoardList: React.FC = () => {
     navigate("/BoardWrite");
   };
 
-  // const deletePost = async () => {
-  //   try {
-  //     const token = localStorage.getItem('token');
-  //     const config = {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     };
-  //     const deleteResponse = await axios.delete(`https://lighthouse1.site/posts/delete/${id}`, config);
-  //     console.log(deleteResponse);
-  //     navigate('/list');
-  //   } catch (error) {
-  //     console.error('Error deleting post:', error);
-  //   }
-  // }
-
   const toggleLike = () => {
     setIsLiked(!isLiked); // 좋아요 상태를 반전
-  };
-
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`;
   };
 
   if (!data) {
@@ -103,7 +77,7 @@ const BoardList: React.FC = () => {
                       </td>
                       <td>
                         Lv.{data.userLevel}&nbsp;{data.userName} <br />{" "}
-                        {formatDate(data.creatAt)}
+                        {data.createAt.substring(0, 10)}
                       </td>
                       <td>
                         <div onClick={toggleLike} className="heart">

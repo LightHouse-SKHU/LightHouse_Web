@@ -111,7 +111,7 @@ const BoardDetail: React.FC = () => {
             <td>
               Lv.{data.userLevel}&nbsp;{data.userName}
             </td>
-            <td>{data.createAt}</td>
+            <td>{data.createAt.substring(0, 10)}</td>
           </tr>
         </tbody>
       </table>
