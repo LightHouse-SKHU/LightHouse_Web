@@ -64,6 +64,7 @@ const BoardDetail: React.FC = () => {
   };
 
   const handleLike = async () => {
+    const token = localStorage.getItem("token");
     const updatedLikes = active ? likes - 1 : likes + 1;
     setLikes(updatedLikes);
 
@@ -72,6 +73,11 @@ const BoardDetail: React.FC = () => {
         `https://lighthouse1.site/likes/${id}`,
         {
           likes: updatedLikes,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // 토큰을 포함한 Authorization 헤더
+          },
         }
       );
       console.log(response.data);
