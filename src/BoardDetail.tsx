@@ -169,12 +169,12 @@ const BoardDetail: React.FC = () => {
           {likes}
         </div>
         <button onClick={deletePost} className="LoginBtn">
-          Delete
+          삭제
         </button>
         <div className="comment">
           <div className="">
             <button onClick={toggleCommentForm} className="LoginBtn">
-              {showCommentForm ? "Close Comment Form" : "Write a Comment"}
+              {showCommentForm ? "댓글 창 닫기" : "댓글 창 열기"}
             </button>
             {showCommentForm && (
               <div>
@@ -185,7 +185,7 @@ const BoardDetail: React.FC = () => {
                   onChange={(e) => setNewComment(e.target.value)}
                 />
                 <button onClick={postComment} className="LoginBtn">
-                  Post Comment
+                  댓글 저장
                 </button>
               </div>
             )}
