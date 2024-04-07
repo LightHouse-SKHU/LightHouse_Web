@@ -81,7 +81,7 @@ const BoardDetail: React.FC = () => {
         setLikes(likes + 1);
       }
     } catch (error) {
-      console.error("Error posting data: ", error);
+      console.error("Error posting likes: ", error);
     }
   };
 
@@ -127,6 +127,7 @@ const BoardDetail: React.FC = () => {
       </button>
       <Heart width={24} height={24} active={active} onClick={handleLike} />
       <p>{likes}</p>
+      <button onClick={handleLike} />
     </>
   );
 };
