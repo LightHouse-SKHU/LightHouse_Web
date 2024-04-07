@@ -124,7 +124,7 @@ const BoardDetail: React.FC = () => {
         <div>
           {data.userLevel} {data.userName}
         </div>
-        <div>{data.createAt}</div>
+        <div>{data.createAt.substring(0, 10)}</div>
         <div>
           <Heart width={24} height={24} active={active} onClick={handleLike} />
           {likes}
