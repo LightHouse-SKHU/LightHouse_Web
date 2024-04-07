@@ -92,6 +92,7 @@ const BoardDetail: React.FC = () => {
         config
       );
       console.log(response);
+      alert("저장되었습니다.");
     } catch (error) {
       console.error("Error posting comment:", error);
     }
@@ -165,7 +166,6 @@ const BoardDetail: React.FC = () => {
                 active={active}
                 onClick={handleLike}
               />
-              &nbsp;{likes}
             </p>
           </div>
         </div>

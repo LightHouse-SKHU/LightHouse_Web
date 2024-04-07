@@ -110,8 +110,6 @@ const BoardList: React.FC = () => {
                             active={active}
                             onClick={handleLike}
                           />
-                          &nbsp;
-                          {likes}
                         </div>
                       </td>
                     </Link>

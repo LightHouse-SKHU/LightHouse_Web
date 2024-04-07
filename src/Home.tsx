@@ -149,7 +149,6 @@ const Home: React.FC = () => {
                             active={active}
                             onClick={handleLike}
                           />
-                          {likes}
                         </div>
                       </td>
                     </Link>
