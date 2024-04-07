@@ -16,7 +16,7 @@ interface BoardInfo {
 const BoardDetail: React.FC = () => {
   const [data, setData] = useState<BoardInfo | null>(null);
   // const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
-  // const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
+  const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
   const [active, setActive] = useState(false);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -67,9 +67,10 @@ const BoardDetail: React.FC = () => {
     setActive(!active);
     if (!active) {
       axios
-        .post(`https://lighthouse1.site/likes/1`)
+        .post(`https://lighthouse1.site/likes/${id}`)
         .then((response) => {
           console.log(response);
+          setLikes(likes + 1);
         })
         .catch((error) => {
           console.error("Error posting data: ", error);
@@ -118,6 +119,7 @@ const BoardDetail: React.FC = () => {
         Delete
       </button>
       <Heart width={24} height={24} active={active} onClick={handleLike} />
+      <p>{likes}</p>
     </>
   );
 };
