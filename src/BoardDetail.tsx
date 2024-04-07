@@ -116,27 +116,6 @@ const BoardDetail: React.FC = () => {
     }
   };
 
-  const deleteComment = async (commentId: string) => {
-    try {
-      const token = localStorage.getItem("token");
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.delete(
-        `https://lighthouse1.site/comments/delete/${id}`,
-        config
-      );
-      console.log(response);
-      const updatedComments =
-        comment?.filter((comment) => comment.id !== commentId) || [];
-      setComment(updatedComments);
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-    }
-  };
-
   const handleLike = async () => {
     const token = localStorage.getItem("token");
     const updatedLikes = active ? likes - 1 : likes + 1;
@@ -216,9 +195,6 @@ const BoardDetail: React.FC = () => {
                   <>
                     <div key={comment.id}>
                       <span>{comment.content}</span>
-                      <button onClick={() => deleteComment(comment.id)}>
-                        Delete
-                      </button>
                     </div>
                   </>
                 ))}
