@@ -127,7 +127,14 @@ const BoardDetail: React.FC = () => {
       </button>
       <Heart width={24} height={24} active={active} onClick={handleLike} />
       <p>{likes}</p>
-      <button onClick={handleLike} />
+      <button onClick={handleLike}>
+        <Heart
+          width={24}
+          height={24}
+          active={active}
+          onClick={() => setActive(!active)}
+        />
+      </button>
     </>
   );
 };
