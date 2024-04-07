@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import banner1 from "./banner1.png";
 import banner2 from "./banner2.png";
+import Heart from "@react-sandbox/heart";
 
 interface BoardInfo {
   id: string;
@@ -28,8 +29,9 @@ const slides: Slide[] = [
 
 const Home: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
-  const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
-  const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
+  const [likes, setLikes] = useState(0);
+  const [active, setActive] = useState(false);
+  const { id } = useParams<{ id: string }>();
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
 
@@ -63,9 +65,29 @@ const Home: React.FC = () => {
     fetchData();
   }, [navigate]);
 
-  const handleLike = () => {
-    setLiked(!liked); // 좋아요 상태를 반전
-    setLikes(likes + (liked ? -1 : 1)); // 좋아요 상태에 따라 likes 값을 증가시키거나 감소시킴
+  const handleLike = async () => {
+    const token = localStorage.getItem("token");
+    const updatedLikes = active ? likes - 1 : likes + 1;
+    setLikes(updatedLikes);
+
+    try {
+      const response = await axios.post(
+        `https://lighthouse1.site/likes/${id}`,
+        {
+          likes: updatedLikes,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // 토큰을 포함한 Authorization 헤더
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error posting data: ", error);
+    }
+
+    setActive(!active);
   };
 
   const nextSlide = () => {
@@ -120,9 +142,16 @@ const Home: React.FC = () => {
                         {data.createAt.substring(0, 10)}
                       </td>
                       <td>
-                        <button onClick={handleLike} id="likeBtn">
-                          👍 {likes} {/* 좋아요 버튼. 좋아요 수를 표시 */}
-                        </button>
+                        <div className="heart">
+                          <Heart
+                            width={24}
+                            height={24}
+                            active={active}
+                            onClick={handleLike}
+                          />
+                          &nbsp;
+                          {likes}
+                        </div>
                       </td>
                     </Link>
                   </>

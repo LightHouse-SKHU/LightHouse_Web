@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./BoardList.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import Heart from "@react-sandbox/heart";
 
 interface BoardInfo {
   id: string;
@@ -19,7 +19,9 @@ interface BoardInfo {
 
 const BoardList: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
-  const [isLiked, setIsLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
+  const [likes, setLikes] = useState(0);
+  const [active, setActive] = useState(false);
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,8 +55,29 @@ const BoardList: React.FC = () => {
     navigate("/BoardWrite");
   };
 
-  const toggleLike = () => {
-    setIsLiked(!isLiked); // 좋아요 상태를 반전
+  const handleLike = async () => {
+    const token = localStorage.getItem("token");
+    const updatedLikes = active ? likes - 1 : likes + 1;
+    setLikes(updatedLikes);
+
+    try {
+      const response = await axios.post(
+        `https://lighthouse1.site/likes/${id}`,
+        {
+          likes: updatedLikes,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // 토큰을 포함한 Authorization 헤더
+          },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error posting data: ", error);
+    }
+
+    setActive(!active);
   };
 
   if (!data) {
@@ -80,12 +103,15 @@ const BoardList: React.FC = () => {
                         {data.createAt.substring(0, 10)}
                       </td>
                       <td>
-                        <div onClick={toggleLike} className="heart">
-                          {isLiked ? (
-                            <AiFillHeart color="red" />
-                          ) : (
-                            <AiOutlineHeart />
-                          )}
+                        <div className="heart">
+                          <Heart
+                            width={24}
+                            height={24}
+                            active={active}
+                            onClick={handleLike}
+                          />
+                          &nbsp;
+                          {likes}
                         </div>
                       </td>
                     </Link>

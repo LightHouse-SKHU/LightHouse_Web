@@ -31,8 +31,7 @@
 }
 
 .heart {
-  color: red;
-  font-size: 25px;
+  float: right;
 }
 
 .test {

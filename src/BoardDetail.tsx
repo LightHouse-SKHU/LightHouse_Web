@@ -109,7 +109,7 @@ const BoardDetail: React.FC = () => {
         <div className="test">
           <p>{data.content}</p>
         </div>
-        <div>
+        <div className="heart">
           <Heart width={24} height={24} active={active} onClick={handleLike} />
           &nbsp;
           {likes}
