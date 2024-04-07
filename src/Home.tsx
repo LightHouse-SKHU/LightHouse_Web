@@ -143,7 +143,6 @@ const Home: React.FC = () => {
                       </td>
                       <td>
                         <div className="heart">
-                          {likes}&nbsp;
                           <Heart
                             width={24}
                             height={24}
