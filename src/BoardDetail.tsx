@@ -158,53 +158,52 @@ const BoardDetail: React.FC = () => {
               Lv.{data.userLevel}&nbsp;{data.userName}
             </p>
             <p>{data.createAt.substring(0, 10)}</p>
-            <div className="heart">
+            <p>
               <Heart
                 width={24}
                 height={24}
                 active={active}
                 onClick={handleLike}
               />
-              &nbsp;
-              {likes}
-            </div>
+              &nbsp;{likes}
+            </p>
           </div>
         </div>
-        <div className="test">
-          <p>{data.content}</p>
-        </div>
+      </div>
+      <div className="test">
+        <p>{data.content}</p>
+      </div>
 
-        <button onClick={deletePost} className="commentBtn">
-          삭제
-        </button>
-        <div className="comment">
-          <div className="">
-            <button onClick={toggleCommentForm} className="commentBtn">
-              {showCommentForm ? "댓글 창 닫기" : "댓글 창 열기"}
-            </button>
-            {showCommentForm && (
-              <div>
-                <input
-                  type="text"
-                  className="writingC"
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                />
-                <button onClick={postComment} className="commentBtn">
-                  댓글 저장
-                </button>
-              </div>
-            )}
-            <div className="test">
-              {comment &&
-                comment.map((comment) => (
-                  <>
-                    <div key={comment.id}>
-                      <span>{comment.content}</span>
-                    </div>
-                  </>
-                ))}
+      <button onClick={deletePost} className="commentBtn">
+        삭제
+      </button>
+      <div className="comment">
+        <div className="">
+          <button onClick={toggleCommentForm} className="commentBtn">
+            {showCommentForm ? "댓글 창 닫기" : "댓글 창 열기"}
+          </button>
+          {showCommentForm && (
+            <div>
+              <input
+                type="text"
+                className="writingC"
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+              />
+              <button onClick={postComment} className="commentBtn">
+                댓글 저장
+              </button>
             </div>
+          )}
+          <div className="test">
+            {comment &&
+              comment.map((comment) => (
+                <>
+                  <div key={comment.id}>
+                    <span>{comment.content}</span>
+                  </div>
+                </>
+              ))}
           </div>
         </div>
       </div>
