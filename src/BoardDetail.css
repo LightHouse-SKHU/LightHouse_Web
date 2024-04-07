@@ -12,3 +12,8 @@
   display: flex;
   margin: 2vw 0;
 }
+
+.commentBtn {
+  border: 1px solid black;
+  border-radius: 7px;
+}

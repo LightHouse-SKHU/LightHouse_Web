@@ -168,23 +168,23 @@ const BoardDetail: React.FC = () => {
           &nbsp;
           {likes}
         </div>
-        <button onClick={deletePost} className="LoginBtn">
+        <button onClick={deletePost} className="commentBtn">
           삭제
         </button>
         <div className="comment">
           <div className="">
-            <button onClick={toggleCommentForm} className="LoginBtn">
+            <button onClick={toggleCommentForm} className="commentBtn">
               {showCommentForm ? "댓글 창 닫기" : "댓글 창 열기"}
             </button>
             {showCommentForm && (
               <div>
                 <input
                   type="text"
-                  className="writingX"
+                  className="writingC"
                   value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
                 />
-                <button onClick={postComment} className="LoginBtn">
+                <button onClick={postComment} className="commentBtn">
                   댓글 저장
                 </button>
               </div>
