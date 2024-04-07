@@ -64,25 +64,22 @@ const BoardDetail: React.FC = () => {
   };
 
   const handleLike = async () => {
+    // active 상태에 따라 좋아요 수 증가 또는 감소
+    const updatedLikes = active ? likes - 1 : likes + 1;
+    setLikes(updatedLikes);
+
     try {
-      const token = localStorage.getItem("token");
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      setActive(!active);
-      if (!active) {
-        const response = await axios.post(
-          `https://lighthouse1.site/likes/${id}`,
-          config
-        );
-        console.log(response);
-        setLikes(likes + 1);
-      }
+      // 서버로 POST 요청
+      const response = await axios.post("https://example.com/likes", {
+        likes: updatedLikes, // 업데이트된 좋아요 수를 서버에 전송
+      });
+      console.log(response.data); // 서버로부터의 응답 확인
     } catch (error) {
-      console.error("Error posting likes: ", error);
+      console.error("Error posting data: ", error);
     }
+
+    // active 상태 변경
+    setActive(!active);
   };
 
   const formatDate = (dateString: string): string => {
@@ -127,14 +124,10 @@ const BoardDetail: React.FC = () => {
       </button>
       <Heart width={24} height={24} active={active} onClick={handleLike} />
       <p>{likes}</p>
-      <button onClick={handleLike}>
-        <Heart
-          width={24}
-          height={24}
-          active={active}
-          onClick={() => setActive(!active)}
-        />
-      </button>
+      <div>
+        <button onClick={handleLike}>{active ? "Unlike" : "Like"}</button>
+        <p>Likes: {likes}</p>
+      </div>
     </>
   );
 };
