@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface QuestInfo {
   id: string;
@@ -23,17 +23,13 @@ const GradeDetail: React.FC = () => {
   useEffect(() => {
     const fetchQuestData = async () => {
       try {
-        // localstorage에 저장했던 토큰 가져오기
         const token = localStorage.getItem("token");
 
-        // 헤더에 토큰 추가
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
-
-        // 서버에 사용자 정보 달라고 get 요청 보내기
         const response = await axios.get(
           `https://lighthouse1.site/examples/${id}`,
           config
@@ -47,7 +43,7 @@ const GradeDetail: React.FC = () => {
     };
 
     fetchQuestData();
-  }, [id]); // id 추가
+  }, [id]); // id를 의존성 배열에 추가
 
   if (!quest) {
     // quest가 null인 경우 로딩 표시
@@ -77,10 +73,7 @@ const GradeDetail: React.FC = () => {
               </thead>
               <tbody>
                 {quest.map((data: QuestInfo) => (
-                  <Link
-                    to={`/get/${data.id}/${data.category}`}
-                    className="boardContent"
-                  >
+                  <tr key={data.id}>
                     <td>{data.id}</td>
                     <td>{data.title}</td>
                     <td>{data.content}</td>
@@ -89,7 +82,7 @@ const GradeDetail: React.FC = () => {
                       <img src={data.imgPath} alt={data.imgPath} />
                     </td>
                     <td>{data.category}</td>
-                  </Link>
+                  </tr>
                 ))}
               </tbody>
             </table>
