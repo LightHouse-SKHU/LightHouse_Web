@@ -36,10 +36,12 @@
 
 .bar {
   display: flex;
+  padding-top: 4vw;
 }
 
 .barLevel {
   width: 4vw;
+  font-size: 26px;
 }
 
 .StyledBase {
