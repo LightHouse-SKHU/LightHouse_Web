@@ -63,18 +63,25 @@ const BoardDetail: React.FC = () => {
     }
   };
 
-  const handleLike = () => {
-    setActive(!active);
-    if (!active) {
-      axios
-        .post(`https://lighthouse1.site/likes/${id}`)
-        .then((response) => {
-          console.log(response);
-          setLikes(likes + 1);
-        })
-        .catch((error) => {
-          console.error("Error posting data: ", error);
-        });
+  const handleLike = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      setActive(!active);
+      if (!active) {
+        const response = await axios.post(
+          `https://lighthouse1.site/likes/${id}`,
+          config
+        );
+        console.log(response);
+        setLikes(likes + 1);
+      }
+    } catch (error) {
+      console.error("Error posting data: ", error);
     }
   };
 
