@@ -15,8 +15,7 @@ interface BoardInfo {
 
 const BoardDetail: React.FC = () => {
   const [data, setData] = useState<BoardInfo | null>(null);
-  // const [liked, setLiked] = useState(false); // 좋아요가 눌려 있는 상태를 저장하는 state
-  const [likes, setLikes] = useState(0); // 좋아요 수를 저장하는 state
+  const [likes, setLikes] = useState(0);
   const [active, setActive] = useState(false);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -88,14 +87,6 @@ const BoardDetail: React.FC = () => {
     setActive(!active);
   };
 
-  const formatDate = (dateString: string): string => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    return `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`;
-  };
-
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -120,20 +111,28 @@ const BoardDetail: React.FC = () => {
             <td>
               Lv.{data.userLevel}&nbsp;{data.userName}
             </td>
-            <td>{formatDate(data.creatAt)}</td>
+            <td>{data.creatAt.substring(0, 10)}</td>
           </tr>
         </tbody>
       </table>
 
-      <button onClick={deletePost} className="detailBtn">
+      <div>
+        <h3>
+          {data.id}
+          {data.title}
+        </h3>
+        <div>
+          {data.userLevel} {data.userName}
+        </div>
+        <div>{data.creatAt}</div>
+        <div>
+          <Heart width={24} height={24} active={active} onClick={handleLike} />
+          {likes}
+        </div>
+      </div>
+      <button onClick={deletePost} className="LoginBtn">
         Delete
       </button>
-      <Heart width={24} height={24} active={active} onClick={handleLike} />
-      <p>{likes}</p>
-      <div>
-        <button onClick={handleLike}>{active ? "Unlike" : "Like"}</button>
-        <p>Likes: {likes}</p>
-      </div>
     </>
   );
 };
