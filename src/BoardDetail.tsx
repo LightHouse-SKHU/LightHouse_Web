@@ -93,23 +93,30 @@ const BoardDetail: React.FC = () => {
 
   return (
     <>
-      <h1>
-        {data.id}.&nbsp;
-        {data.title}
-      </h1>
-      <div className="test">
-        <p>{data.userLevel}&nbsp;</p>
-        <p>{data.userName}</p>
-        <p>{data.createAt.substring(0, 10)}</p>
-        <p>
-          <Heart width={24} height={24} active={active} onClick={handleLike} />
-          &nbsp;
-          {likes}
-        </p>
+      <div className="boardDetail">
+        <h1>
+          {data.id}.&nbsp;
+          {data.title}
+        </h1>
+        <div className="test">
+          <p>{data.userLevel}&nbsp;</p>
+          <p>{data.userName}</p>
+          <p>{data.createAt.substring(0, 10)}</p>
+          <p>
+            <Heart
+              width={24}
+              height={24}
+              active={active}
+              onClick={handleLike}
+            />
+            &nbsp;
+            {likes}
+          </p>
+        </div>
+        <button onClick={deletePost} className="LoginBtn">
+          Delete
+        </button>
       </div>
-      <button onClick={deletePost} className="LoginBtn">
-        Delete
-      </button>
     </>
   );
 };
