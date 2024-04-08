@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import Login from "../Login/Login.tsx";
-import User from "../User/User.tsx";
-import BoardList from "../Board/BoardList.tsx";
-import Rank from "../User/Rank.tsx";
-import Join from "../Login/Join.tsx";
-import BoardWrite from "../Board/BoardWrite.tsx";
-import BoardDetail from "../Board/BoardDetail.tsx";
+import Login from "./Login.tsx";
+import User from "./User.tsx";
+import BoardList from "./BoardList.tsx";
+import Rank from "./Rank.tsx";
+import Join from "./Join.tsx";
+import BoardWrite from "./BoardWrite.tsx";
+import BoardDetail from "./BoardDetail.tsx";
 import Home from "./Home.tsx";
 function App() {
   return (
