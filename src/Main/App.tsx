@@ -7,7 +7,6 @@ import Join from "../Login/Join.tsx";
 import BoardWrite from "../Board/BoardWrite.tsx";
 import BoardDetail from "../Board/BoardDetail.tsx";
 import Home from "./Home.tsx";
-import Grade from "../Question/Grade.tsx";
 function App() {
   return (
     <Routes>
@@ -19,7 +18,6 @@ function App() {
       <Route path="/Join" element={<Join />} />
       <Route path="/posts/find/:id" element={<BoardDetail />} />
       <Route path="/BoardWrite" element={<BoardWrite />} />
-      <Route path="/Grade" element={<Grade />} />
     </Routes>
   );
 }

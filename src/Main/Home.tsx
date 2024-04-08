@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import banner1 from "./banner1.png";
 import banner2 from "./banner2.png";
+import EverLearning from "./EverLearning.jpg";
 import Heart from "@react-sandbox/heart";
 
 interface BoardInfo {
@@ -15,16 +16,14 @@ interface BoardInfo {
   createAt: string;
 }
 
-// 이미지 슬라이드 데이터 타입 정의
 interface Slide {
   src: string;
 }
 
-// 이미지 슬라이드 데이터 배열
 const slides: Slide[] = [
   { src: banner1 },
   { src: banner2 },
-  // 추가 이미지를 원하면 위와 같은 방식으로 추가합니다.
+  { src: EverLearning },
 ];
 
 const Home: React.FC = () => {
@@ -38,27 +37,22 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // localstorage에 저장했던 토큰 가져오기
         const token = localStorage.getItem("token");
 
-        // 헤더에 토큰 추가
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
 
-        // 서버에 사용자 정보 달라고 get 요청 보내기
         const response = await axios.get(
           "https://lighthouse1.site/posts/find/list/like",
           config
         );
 
-        setData(response.data); // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+        setData(response.data);
       } catch (error) {
-        // get 실패시 console 메시지 출력
         console.error("Error fetching data:", error);
-        // navigate('/Home')
       }
     };
 
@@ -98,6 +92,21 @@ const Home: React.FC = () => {
     setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
   };
 
+  const handleEverLearningClick = async () => {
+    try {
+      // 서버에서 EverLearning 이미지의 주소를 가져옴
+      const response = await axios.get(
+        "https://lighthouse1.site/everlearning/web/1"
+      );
+      const imageUrl = response.data.imageUrl;
+
+      // 이미지 주소로 이동
+      window.open(imageUrl, "_blank");
+    } catch (error) {
+      console.error("Error fetching EverLearning image:", error);
+    }
+  };
+
   if (!data) {
     return <div>Loading...</div>;
   }
@@ -112,6 +121,11 @@ const Home: React.FC = () => {
                 key={index}
                 className={
                   index === currentSlide ? "mySlides active" : "mySlides"
+                }
+                onClick={
+                  index === slides.length - 1
+                    ? handleEverLearningClick
+                    : undefined
                 }
               >
                 <img src={slide.src} alt={`Slide ${index}`} />
@@ -156,20 +170,6 @@ const Home: React.FC = () => {
                 ))}
               </tbody>
             </table>
-          </div>
-          <div className="homeGrade">
-            <h1>문제 바로가기</h1>
-            <div className="homelist">
-              <Link to="/Grade" className="homeLink">
-                1학년 문제
-              </Link>
-              <Link to="/Grade" className="homeLink">
-                2학년 문제
-              </Link>
-              <Link to="/Grade" className="homeLink">
-                3학년 문제
-              </Link>
-            </div>
           </div>
         </div>
       </div>
