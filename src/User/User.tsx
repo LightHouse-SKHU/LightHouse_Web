@@ -78,7 +78,7 @@ const User = () => {
           <p className="userData">학교: {data.school}</p>
           <p className="userData">나이: {data.age}</p>
           <p className="userData">이메일: {data.email}</p>
-          <p className="userData">가입일: {data.createAt}</p>
+          {/* <p className="userData">가입일: {data.createAt}</p> */}
         </div>
       </div>
     </>
