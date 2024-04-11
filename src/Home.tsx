@@ -94,13 +94,11 @@ const Home: React.FC = () => {
 
   const handleEverLearningClick = async () => {
     try {
-      // 서버에서 EverLearning 이미지의 주소를 가져옴
       const response = await axios.get(
         "https://lighthouse1.site/everlearning/web/1"
       );
       const imageUrl = response.data.imageUrl;
 
-      // 이미지 주소로 이동
       window.open(imageUrl, "_blank");
     } catch (error) {
       console.error("Error fetching EverLearning image:", error);

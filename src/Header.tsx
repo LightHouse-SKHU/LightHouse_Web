@@ -4,16 +4,14 @@ import { FC, useEffect, useState } from "react";
 import "./Header.css";
 
 const Header: FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태를 저장하는 state 추가
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  // 로그인 상태를 로컬 스토리지에 동기화
   useEffect(() => {
     const savedIsLoggedIn = localStorage.getItem("isLoggedIn");
     setIsLoggedIn(savedIsLoggedIn === "true");
   }, []);
 
-  // 로그인/로그아웃 버튼 클릭시 동작할 함수 구현
   const handleLoginLogout = () => {
     if (isLoggedIn) {
       localStorage.removeItem("token");
@@ -54,8 +52,7 @@ const Header: FC = () => {
         </div>
         <div className="title_login">
           <button id="loginBtn" onClick={handleLoginLogout}>
-            {isLoggedIn ? "Logout" : "Login"}{" "}
-            {/* 로그인 상태에 따라 버튼 텍스트 변경 */}
+            {isLoggedIn ? "Logout" : "Login"}
           </button>
         </div>
       </div>

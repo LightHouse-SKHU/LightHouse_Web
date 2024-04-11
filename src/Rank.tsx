@@ -16,25 +16,21 @@ const Rank = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // localstorage에 저장했던 토큰 가져오기
         const token = localStorage.getItem("token");
 
-        // 헤더에 토큰 추가
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
 
-        // 서버에 사용자 정보 달라고 get 요청 보내기
         const response = await axios.get(
           "https://lighthouse1.site/users/ranking",
           config
         );
 
-        setData(response.data); // 요청 완료시 reponse변수에 서버에서 받은 사용자 정보가 저장될 것
+        setData(response.data);
       } catch (error) {
-        // get 실패시 console 메시지 출력
         console.error("Error fetching data:", error);
       }
     };

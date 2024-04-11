@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Join.css";
-import { useNavigate } from "react-router-dom"; // useNavigate import
+import { useNavigate } from "react-router-dom";
 
 interface Submission {
   email: string;
@@ -23,7 +23,7 @@ const Join: React.FC = () => {
     nation: "",
     school: "",
   });
-  const navigate = useNavigate(); // useNavigate hook 추가
+  const navigate = useNavigate();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({
@@ -43,7 +43,6 @@ const Join: React.FC = () => {
     event.preventDefault();
 
     try {
-      // First step of signup
       await axios.post("https://lighthouse1.site/auth/signup", {
         email: user.email,
         password: user.password,
@@ -55,7 +54,7 @@ const Join: React.FC = () => {
       });
 
       alert("회원가입이 완료되었습니다. 로그인해주세요.");
-      navigate("/Login"); // signup 성공 후 로그인 페이지로 이동
+      navigate("/Login");
     } catch (error) {
       console.error(error);
     }
@@ -95,7 +94,6 @@ const Join: React.FC = () => {
               onChange={handleRoleChange}
               className="LoginI"
             >
-              {/* <option value="">Select role</option> */}
               <option value="student">Student</option>
               <option value="teacher">Teacher</option>
             </select>

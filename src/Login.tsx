@@ -10,7 +10,7 @@ interface User {
 
 const Login: React.FC = () => {
   const [user, setUser] = useState<User>({ email: "", password: "" });
-  const navigate = useNavigate(); // useNavigate hook 추가
+  const navigate = useNavigate();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({
@@ -27,9 +27,8 @@ const Login: React.FC = () => {
         "https://lighthouse1.site/auth/login",
         user
       );
-      const { accessToken } = response.data; //accesstoken 분리
+      const { accessToken } = response.data;
 
-      // save the token into local storage
       localStorage.setItem("token", accessToken);
 
       alert("로그인 되었습니다.");

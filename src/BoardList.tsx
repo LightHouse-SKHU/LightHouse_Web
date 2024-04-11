@@ -13,10 +13,6 @@ interface BoardInfo {
   createAt: string;
 }
 
-// interface UserInfo {
-//   name: string;
-// }
-
 const BoardList: React.FC = () => {
   const [data, setData] = useState<BoardInfo[]>([]);
   const [likes, setLikes] = useState(0);
@@ -27,17 +23,14 @@ const BoardList: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // localstorage에 저장했던 토큰 가져오기
         const token = localStorage.getItem("token");
 
-        // 헤더에 토큰 추가
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
 
-        // 서버에 사용자 정보 달라고 get 요청 보내기
         const response = await axios.get(
           "https://lighthouse1.site/posts/find/list/all",
           config
@@ -68,7 +61,7 @@ const BoardList: React.FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // 토큰을 포함한 Authorization 헤더
+            Authorization: `Bearer ${token}`,
           },
         }
       );

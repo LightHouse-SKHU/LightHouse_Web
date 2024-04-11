@@ -28,7 +28,6 @@
 
 .homeList {
   margin-top: 2vw;
-  /* border: 2px solid #b4b4ff; */
   border-radius: 7px;
 }
 .homeTitle {
@@ -41,7 +40,6 @@
   text-align: center;
   border: 1px solid #b4b4ff;
   border-radius: 7px;
-  /* width: 96%; */
   margin: 1% 0;
   padding: 1vw 0;
 }
