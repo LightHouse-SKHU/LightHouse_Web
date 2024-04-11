@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // 토큰을 포함한 Authorization 헤더
+            Authorization: `Bearer ${token}`,
           },
         }
       );
